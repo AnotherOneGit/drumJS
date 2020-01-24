@@ -92,32 +92,39 @@ window.addEventListener('DOMContentLoaded', function () {
             id: 'Snare',
             url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3' }];
 
-    let audio0 = new Audio()
-    audio0.preload = 'auto'
-    audio0.src = bankOne[0].url
+    function selectAudio(url) {
+        let audio = new Audio()
+        audio.preload = 'auto'
+        audio.src = bankOne[url].url
+        audio.play()
+    }
 
-    let audio1 = new Audio();
-    audio1.preload = 'auto';
-    audio1.src = 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3';
-
-    // let areaBtn = document.getElementById('areaBtn')
+    let clearBtn = document.getElementById('clearBtn')
     let areaKick = document.getElementById('areaKick')
     let addSickBtn = document.getElementById('addSickBtn')
     let addStrongBtn = document.getElementById('addStrongBtn')
     let startBtn = document.getElementById('startBtn')
     let screen = document.getElementById('screen')
+    let kickDiv = document.getElementById('kickDiv')
 
     let arrayKicks = []
 
+    clearBtn.addEventListener('click', clearAll)
     addStrongBtn.addEventListener('click', createStrongKick)
     addSickBtn.addEventListener('click', createSickKick)
     startBtn.addEventListener('click', start)
+
+    function clearAll() {
+        arrayKicks = []
+        kickDiv.remove()
+    }
 
     function createSickKick() {
         let kick = document.createElement('div')
 
         arrayKicks.push(0)
         kick.classList.add('sickKick')
+        kick.id = 'kickDiv'
 
         areaKick.append(kick)
     }
@@ -127,6 +134,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         arrayKicks.push(1)
         kick.classList.add('strongKick')
+        kick.id = 'kickDiv'
 
         areaKick.append(kick)
     }
@@ -139,10 +147,10 @@ window.addEventListener('DOMContentLoaded', function () {
         arrayKicks.forEach(function (item, i, arrayKicks) {
             setTimeout(function() {
                 switch (item) {
-                    case 0: audio0.play()
+                    case 0: selectAudio(0)
                         changeColor('green')
                         break
-                    case 1: audio1.play()
+                    case 1: selectAudio(1)
                         changeColor('blue')
                 }
             }, i * 1000)
