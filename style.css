@@ -1,12 +1,13 @@
 body {
     display: grid;
+    background-color: cadetblue;
 }
 
 .areaBtn {
-    display: grid;
+    display: flex;
     /*grid-template-rows: 1fr;*/
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    /* grid-template-columns: repeat(4, 1fr); */
+    justify-content: space-evenly;
 }
 
 .sickKick {
@@ -27,12 +28,6 @@ body {
     grid-gap: 10px;
 }
 
-.screen {
-    width: 50%;
-    background: aquamarine;
-    height: 60px;
-}
-
 .green {
     height: 60px;
     background: green;
@@ -45,4 +40,10 @@ body {
 
 .white {
     background: white
+}
+
+button {
+    border-radius: 25%;
+    width: 88px;
+    background: teal;
 }

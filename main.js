@@ -105,18 +105,19 @@ window.addEventListener('DOMContentLoaded', function () {
     let addStrongBtn = document.getElementById('addStrongBtn')
     let startBtn = document.getElementById('startBtn')
     let screen = document.getElementById('screen')
-    let kickDiv = document.getElementById('kickDiv')
+    let kickDiv = document.getElementsByClassName('sickKick')
 
     let arrayKicks = []
 
-    clearBtn.addEventListener('click', clearAll)
+    clearBtn.addEventListener('click', ClearLast)
     addStrongBtn.addEventListener('click', createStrongKick)
     addSickBtn.addEventListener('click', createSickKick)
     startBtn.addEventListener('click', start)
 
-    function clearAll() {
+    function ClearLast() {
         arrayKicks = []
-        kickDiv.remove()
+        console.log(kickDiv)
+        kickDiv[0].remove()
     }
 
     function createSickKick() {
@@ -124,7 +125,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         arrayKicks.push(0)
         kick.classList.add('sickKick')
-        kick.id = 'kickDiv'
 
         areaKick.append(kick)
     }
@@ -134,7 +134,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         arrayKicks.push(1)
         kick.classList.add('strongKick')
-        kick.id = 'kickDiv'
 
         areaKick.append(kick)
     }
