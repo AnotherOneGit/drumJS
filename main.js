@@ -99,42 +99,48 @@ window.addEventListener('DOMContentLoaded', function () {
         audio.play()
     }
 
-    let clearBtn = document.getElementById('clearBtn')
-    let areaKick = document.getElementById('areaKick')
-    let addSickBtn = document.getElementById('addSickBtn')
     let addStrongBtn = document.getElementById('addStrongBtn')
+    let clearLastBtn = document.getElementById('clearLastBtn')
+    let clearAllBtn = document.getElementById('clearAllBtn')
+    let addSickBtn = document.getElementById('addSickBtn')
+    let areaKick = document.getElementById('areaKick')
     let startBtn = document.getElementById('startBtn')
+    let kickDivs = document.getElementsByClassName('kick')
     let screen = document.getElementById('screen')
-    let kickDiv = document.getElementsByClassName('sickKick')
 
     let arrayKicks = []
 
-    clearBtn.addEventListener('click', ClearLast)
     addStrongBtn.addEventListener('click', createStrongKick)
     addSickBtn.addEventListener('click', createSickKick)
+    clearLastBtn.addEventListener('click', clearLast)
+    clearAllBtn.addEventListener('click', clearAll)
     startBtn.addEventListener('click', start)
 
-    function ClearLast() {
+    function clearAll() {
         arrayKicks = []
-        console.log(kickDiv)
-        kickDiv[0].remove()
+        while (kickDivs.length > 0) {
+            kickDivs[0].remove()
+        }
+    }
+
+    function clearLast() {
+        arrayKicks.pop()
+        kickDivs[kickDivs.length-1].remove()
     }
 
     function createSickKick() {
         let kick = document.createElement('div')
-
         arrayKicks.push(0)
-        kick.classList.add('sickKick')
-
+        kick.classList.add('sick')
+        kick.classList.add('kick')
         areaKick.append(kick)
     }
 
     function createStrongKick() {
         let kick = document.createElement('div')
-
         arrayKicks.push(1)
-        kick.classList.add('strongKick')
-
+        kick.classList.add('strong')
+        kick.classList.add('kick')
         areaKick.append(kick)
     }
 

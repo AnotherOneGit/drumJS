@@ -10,12 +10,12 @@ body {
     justify-content: space-evenly;
 }
 
-.sickKick {
+.sick {
     background: black;
     height: 10px;
 }
 
-.strongKick {
+.strong {
     background: burlywood;
     height: 10px;
 }
@@ -46,4 +46,5 @@ button {
     border-radius: 25%;
     width: 88px;
     background: teal;
+    border: black;
 }
