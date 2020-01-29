@@ -108,20 +108,31 @@ window.addEventListener('DOMContentLoaded', function () {
     let startBtn = document.getElementById('startBtn')
     let kickDivs = document.getElementsByClassName('kick')
     let screen = document.getElementById('screen')
-    let speedBtn = document.getElementById('speedBtn')
-    // let speed = setSpeed()
+    let setSpeedBtn = document.getElementById('setSpeedBtn')
+    let speedBtnX = document.querySelectorAll('.speedBtnX')
+    let speed
 
     let arrayKicks = []
 
-    speedBtn.addEventListener('click', setSpeed)
+    speedBtnX.forEach(function (item, i, speedBtnX) {
+        item.addEventListener('click', setSpeedBtnX)
+    })
+    speedInput.addEventListener("input", setSpeedInput)
+    // setSpeedBtn.addEventListener('click', setSpeedInput)
     addStrongBtn.addEventListener('click', createStrongKick)
     addSickBtn.addEventListener('click', createSickKick)
     clearLastBtn.addEventListener('click', clearLast)
     clearAllBtn.addEventListener('click', clearAll)
     startBtn.addEventListener('click', start)
 
-    function setSpeed() {
-        let speed = speedInput.value
+    function setSpeedBtnX() {
+        let speed = (this.innerText)
+        speedInput.value = speed
+        return speed
+    }
+
+    function setSpeedInput() {
+        let speed = 1000/(speedInput.value/60)
         console.log(speed)
         return speed
     }
@@ -164,13 +175,13 @@ window.addEventListener('DOMContentLoaded', function () {
         arrayKicks.forEach(function (item, i, arrayKicks) {
             setTimeout(function() {
                 switch (item) {
-                    case 0: selectAudio(6)
+                    case 0: selectAudio(5)
                         changeColor('green')
                         break
                     case 1: selectAudio(7)
                         changeColor('blue')
                 }
-            }, i * setSpeed())
+            }, i * setSpeedInput())
         })
     }
 })

@@ -3,6 +3,11 @@ body {
     background-color: cadetblue;
 }
 
+.speedArea {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .areaBtn {
     display: flex;
     /*grid-template-rows: 1fr;*/
@@ -43,8 +48,8 @@ body {
 }
 
 button {
-    border-radius: 25%;
-    width: 88px;
+    /*border-radius: 33%;*/
+    /*width: 50px;*/
     background: teal;
-    border: black;
+    border: 1px solid black;
 }
