@@ -99,6 +99,7 @@ window.addEventListener('DOMContentLoaded', function () {
         audio.play()
     }
 
+    let double = document.getElementById('double')
     let speedInput = document.getElementById('speedInput')
     let addStrongBtn = document.getElementById('addStrongBtn')
     let clearLastBtn = document.getElementById('clearLastBtn')
@@ -117,6 +118,7 @@ window.addEventListener('DOMContentLoaded', function () {
     speedBtnX.forEach(function (item, i, speedBtnX) {
         item.addEventListener('click', setSpeedBtnX)
     })
+    double.addEventListener('click', setDouble)
     speedInput.addEventListener("input", setSpeedInput)
     // setSpeedBtn.addEventListener('click', setSpeedInput)
     addStrongBtn.addEventListener('click', createStrongKick)
@@ -124,6 +126,15 @@ window.addEventListener('DOMContentLoaded', function () {
     clearLastBtn.addEventListener('click', clearLast)
     clearAllBtn.addEventListener('click', clearAll)
     startBtn.addEventListener('click', start)
+
+    function setDouble() {
+        if(arrayKicks.length < 1000) {
+            arrayKicks.push(...arrayKicks)
+        } else {
+            alert('Too much kicks!')
+        }
+        double.innerText = arrayKicks.length + ' kicks'
+    }
 
     function setSpeedBtnX() {
         let speed = (this.innerText)
@@ -133,17 +144,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
     function setSpeedInput() {
         let speed = 1000/(speedInput.value/60)
-        console.log(speed)
         return speed
     }
-
-
 
     function clearAll() {
         arrayKicks = []
         while (kickDivs.length > 0) {
             kickDivs[0].remove()
         }
+        screen.className = 'cadetblue'
     }
 
     function clearLast() {

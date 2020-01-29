@@ -1,6 +1,6 @@
 body {
     display: grid;
-    background-color: cadetblue;
+    background-color: #006064;
 }
 
 .speedArea {
@@ -16,12 +16,12 @@ body {
 }
 
 .sick {
-    background: black;
+    background: #9e9e9e;
     height: 10px;
 }
 
 .strong {
-    background: burlywood;
+    background: #795548;
     height: 10px;
 }
 
@@ -35,21 +35,26 @@ body {
 
 .green {
     height: 60px;
-    background: green;
+    background: #9e9e9e;
 }
 
 .blue {
     height: 60px;
-    background: blue;
+    background: #795548;
 }
 
-.white {
-    background: white;
+.cadetblue {
+    background: cadetblue;
 }
 
 button {
     /*border-radius: 33%;*/
     /*width: 50px;*/
-    background: teal;
+    background: #004d40;
+    color: white;
     border: 1px solid black;
+}
+
+label {
+    color: white;
 }
