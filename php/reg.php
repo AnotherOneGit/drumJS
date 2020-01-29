@@ -8,6 +8,12 @@
     <title>Registation on drumJS</title>
 </head>
 <body>
+    <header>
+        <a href="">Enter</a>
+        <a href="">drumJS</a>
+        <a href="php/reg.php">Registation</a>
+        <a href="">Leave</a>
+    </header>
     <hr>
     <form action="reg.php">
         <label for="">Name</label>
