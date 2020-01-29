@@ -58,3 +58,31 @@ button {
 label {
     color: white;
 }
+
+#text {
+    display: grid;
+    justify-content: center;
+    color: white;
+}
+
+header {
+    display: grid;
+    /* grid-template-rows: repeat(4, 1fr); */
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    /* justify-content: center;
+    align-content: center; */
+    color: white;
+    border: 1px solid black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+form {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
