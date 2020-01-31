@@ -1,22 +1,4 @@
 <?php
-// enter in site
-// require_once "user-pass.php";
-//     $dbh = new PDO('mysql:host=localhost;dbname=drumjs', $user, $pass);
-//     $sql = "SELECT name, password FROM users WHERE name = :name";
-//     $params = [':name' => $name];
-
-//     $stmt = $dbh->prepare($sql);
-//     $stmt->execute($params);
-
-//     $user = $stmt->fetch(PDO::FETCH_OBJ);
-
-// if(password_verify($pwd, $user->password)) {
-//         echo ' ok';
-// } else {
-//         echo 'not ok';
-// }
-
-// header('Location: enter.html ');
 
 require_once 'connect.php';
 
@@ -34,7 +16,7 @@ if(!empty($login) && !empty($pwd)){
 
         if($user) {
             if (password_verify($pwd, $user->password)) {
-                echo 'entering';
+                header('Location: /drumjs');
             } else {
                 echo 'wrong pass';
             }
