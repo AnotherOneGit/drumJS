@@ -119,6 +119,7 @@ window.addEventListener('DOMContentLoaded', function () {
         audio.play()
     }
 
+    let addBothBtn = document.getElementById('addBothBtn')
     let double = document.getElementById('double')
     let speedInput = document.getElementById('speedInput')
     let addStrongBtn = document.getElementById('addStrongBtn')
@@ -129,15 +130,16 @@ window.addEventListener('DOMContentLoaded', function () {
     let startBtn = document.getElementById('startBtn')
     let kickDivs = document.getElementsByClassName('kick')
     let screen = document.getElementById('screen')
-    let setSpeedBtn = document.getElementById('setSpeedBtn')
+    // let setSpeedBtn = document.getElementById('setSpeedBtn')
     let speedBtnX = document.querySelectorAll('.speedBtnX')
-    let speed
+    // let speed
 
     let arrayKicks = []
 
     speedBtnX.forEach(function (item, i, speedBtnX) {
         item.addEventListener('click', setSpeedBtnX)
     })
+    addBothBtn.addEventListener('click', createBothKicks)
     double.addEventListener('click', setDouble)
     speedInput.addEventListener("input", setSpeedInput)
     // setSpeedBtn.addEventListener('click', setSpeedInput)
@@ -196,6 +198,14 @@ window.addEventListener('DOMContentLoaded', function () {
         areaKick.append(kick)
     }
 
+    function createBothKicks() {
+        let kick = document.createElement('div')
+        arrayKicks.push(2)
+        kick.classList.add('both')
+        kick.classList.add('kick')
+        areaKick.append(kick)
+    }
+
     function changeColor(color) {
         screen.className = color
     }
@@ -211,6 +221,12 @@ window.addEventListener('DOMContentLoaded', function () {
                     case 1:
                         selectAudio(7)
                         changeColor('blue')
+                        break
+                    case 2:
+                        selectAudio(7)
+                        selectAudio(5)
+                        changeColor('ff9800')
+                        break
                 }
             }, i * setSpeedInput())
         })

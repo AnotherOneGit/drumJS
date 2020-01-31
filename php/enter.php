@@ -13,4 +13,4 @@ if ($stmt->execute(array("%$_POST[login]%"))) {
     }
 }
 
-// header('Location: http://localhost/drumjs/php/enter.html ');
+// header('Location: enter.html ');
