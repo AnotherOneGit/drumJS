@@ -19,5 +19,5 @@ if(!empty($login) && !empty($pwd)) {
     $stmt->execute($params);
     header('Location: /drumjs/php/enter.html');
 } else {
-    echo "asd";
+    echo('User exists');
 }
