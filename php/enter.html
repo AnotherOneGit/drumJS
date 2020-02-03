@@ -18,15 +18,17 @@
         <a href="https://google.com">Leave</a>
     </header>
     <hr>
-    <form action="enter.php" method="post">
+        <div id="response"></div>
+    <form action="enter.php" name="enterForm">
         <label for="name">Name or E-mail</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <input type="submit">
         <input type="reset">
     </form>
     </div>
+<!--    <script src="ajaxEnter.js"></script>-->
 </body>
 
 </html>
