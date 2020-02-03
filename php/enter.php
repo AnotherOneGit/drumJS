@@ -18,11 +18,11 @@ if(!empty($login) && !empty($pwd)){
             if (password_verify($pwd, $user->password)) {
                 header('Location: /drumjs');
             } else {
-                echo 'wrong pass';
+                echo 'wrong';
             }
         }else {
-                echo 'wrong login';
+                echo 'wrong';
             }
         } else {
-    echo 'all inputs';
+    echo 'wrong';
 }
