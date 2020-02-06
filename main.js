@@ -119,6 +119,7 @@ window.addEventListener('DOMContentLoaded', function () {
         audio.play()
     }
 
+    let loadBtn = document.getElementById('loadBtn')
     let addBothBtn = document.getElementById('addBothBtn')
     let double = document.getElementById('double')
     let speedInput = document.getElementById('speedInput')
@@ -139,6 +140,7 @@ window.addEventListener('DOMContentLoaded', function () {
     speedBtnX.forEach(function (item, i, speedBtnX) {
         item.addEventListener('click', setSpeedBtnX)
     })
+    loadBtn.addEventListener('click', loadTemplate)
     addBothBtn.addEventListener('click', createBothKicks)
     double.addEventListener('click', setDouble)
     speedInput.addEventListener("input", setSpeedInput)
@@ -149,13 +151,42 @@ window.addEventListener('DOMContentLoaded', function () {
     clearAllBtn.addEventListener('click', clearAll)
     startBtn.addEventListener('click', start)
 
+    function doubleText() {
+        double.innerText = 'Kicks x2, now ' + arrayKicks.length + ' kicks'
+    }
+
+    function loadTemplate() {
+        let xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                myObj = JSON.parse(this.responseText)
+                myObj.forEach(function (item, i) {
+                        switch (item) {
+                            case 0:
+                                createSickKick()
+                                break
+                            case 1:
+                                createStrongKick()
+                                break
+                            case 2:
+                                createBothKicks()
+                                break
+                        }
+                })
+            }
+        };
+        xmlhttp.open("POST", "php/templates.php", true)
+        xmlhttp.send()
+    }
+
     function setDouble() {
         if (arrayKicks.length < 1000) {
             arrayKicks.push(...arrayKicks)
         } else {
             alert('Too much kicks!')
         }
-        double.innerText = arrayKicks.length + ' kicks'
+        doubleText()
     }
 
     function setSpeedBtnX() {
@@ -174,12 +205,14 @@ window.addEventListener('DOMContentLoaded', function () {
         while (kickDivs.length > 0) {
             kickDivs[0].remove()
         }
-        screen.className = 'cadetblue'
+        screen.className = 'clearAll'
+        doubleText()
     }
 
     function clearLast() {
         arrayKicks.pop()
         kickDivs[kickDivs.length - 1].remove()
+        doubleText()
     }
 
     function createSickKick() {
@@ -188,6 +221,7 @@ window.addEventListener('DOMContentLoaded', function () {
         kick.classList.add('sick')
         kick.classList.add('kick')
         areaKick.append(kick)
+        doubleText()
     }
 
     function createStrongKick() {
@@ -196,6 +230,7 @@ window.addEventListener('DOMContentLoaded', function () {
         kick.classList.add('strong')
         kick.classList.add('kick')
         areaKick.append(kick)
+        doubleText()
     }
 
     function createBothKicks() {
@@ -204,6 +239,7 @@ window.addEventListener('DOMContentLoaded', function () {
         kick.classList.add('both')
         kick.classList.add('kick')
         areaKick.append(kick)
+        doubleText()
     }
 
     function changeColor(color) {
@@ -216,16 +252,16 @@ window.addEventListener('DOMContentLoaded', function () {
                 switch (item) {
                     case 0:
                         selectAudio(5)
-                        changeColor('green')
+                        changeColor('sick')
                         break
                     case 1:
                         selectAudio(7)
-                        changeColor('blue')
+                        changeColor('strong')
                         break
                     case 2:
-                        selectAudio(7)
                         selectAudio(5)
-                        changeColor('ff9800')
+                        selectAudio(7)
+                        changeColor('both')
                         break
                 }
             }, i * setSpeedInput())

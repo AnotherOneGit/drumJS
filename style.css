@@ -1,13 +1,31 @@
+:root {
+    --body-color: #16a085;
+    --content-color: #1abc9c;
+    --sick-color: #9e9e9e;
+    --strong-color: #795548;
+    --both-color: #ff9800;
+    --button-color: #2ecc71;
+    --text-color: white;
+    --header-color: #27ae60;
+    --warning-text-color: red;
+}
+
 body {
     display: grid;
-    background-color: #01579b;
+    background-color: var(--body-color);
 }
 
 .content {
     display: grid;
     width: 75%;
     justify-self: center;
-    background-color: #006064;
+    /*justify-content: center;*/
+    background-color: var(--content-color);
+    border: 1px solid black;
+}
+
+#speedInput {
+    width: 50px;
 }
 
 .speedArea {
@@ -23,13 +41,17 @@ body {
 }
 
 .sick {
-    background: #9e9e9e;
-    height: 10px;
+    background: var(--sick-color);
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }
 
 .strong {
-    background: #795548;
-    height: 10px;
+    background: var(--strong-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 40%;
 }
 
 .areaKick {
@@ -41,51 +63,38 @@ body {
 }
 
 .both {
-    background: #ff9800;
-    height: 10px;
+    background: var(--both-color);
+    height: 50px;
+    width: 50px;
+    border-radius: 30%;
 }
 
-.wheat {
-    background: wheat;
+.screen {
     height: 60px;
 }
 
-.ff9800 {
-    background: #ff9800;
+.clearAll {
+    background: var(--content-color);
     height: 60px;
-}
-
-.green {
-    height: 60px;
-    background: #9e9e9e;
-}
-
-.blue {
-    height: 60px;
-    background: #795548;
-}
-
-.cadetblue {
-    background: cadetblue;
 }
 
 button {
     /*border-radius: 33%;*/
     /*width: 50px;*/
-    background: #004d40;
+    background: var(--button-color);
     color: white;
     border: 1px solid black;
 }
 
 label {
-    color: white;
+    color: var(--text-color);
 }
 
 #text {
     display: grid;
     justify-content: center;
     justify-items: center;
-    color: white;
+    color: var(--text-color);
 }
 
 header {
@@ -100,13 +109,13 @@ header {
     /* position: sticky;
     top: 0; */
     padding: 1%;
-    background: #00838f  ;
+    background: var(--header-color);
 }
     
 
 a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
 }
 
 form {
@@ -115,12 +124,12 @@ form {
     grid-template-columns: repeat(2, 1fr);
 }
 
-footer {
-    position: sticky;
-    /* bottom: 0; */
-}
+/*footer {*/
+/*    position: sticky;*/
+/*    !* bottom: 0; *!*/
+/*}*/
 
 #response {
-    color: red;
+    color: var(--warning-text-color);
     text-align: center;
 }
