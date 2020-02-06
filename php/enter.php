@@ -16,7 +16,7 @@ if(!empty($login) && !empty($pwd)){
 
         if($user) {
             if (password_verify($pwd, $user->password)) {
-                header('Location: /drumjs');
+                echo ('ok');
             } else {
                 echo 'wrong';
             }

@@ -11,5 +11,5 @@ $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 try{
     $pdo = new PDO("$driver:host=$host;dbname=$dbName;charset=$charset", $dbUser, $dbPass, $options);
 } catch(PDOException $e){
-    die('s');
+    die('Cant connect');
 }

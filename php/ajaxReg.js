@@ -5,7 +5,7 @@ document.forms.regForm.onsubmit = function (e) {
 
     let formData = {
         name: document.forms.regForm.name.value,
-        email: document.forms.regForm.email.value,
+        // email: document.forms.regForm.email.value,
         password: document.forms.regForm.password.value
     }
 
@@ -14,8 +14,10 @@ document.forms.regForm.onsubmit = function (e) {
     xhr.addEventListener('load', function () {
         if(xhr.responseText === 'exist'){
             response.textContent = 'User with this name already exist! Please, choose another name'
-        } else {
+        } else if(xhr.responseText === 'ok'){
             window.location = 'enter.html'
+        } else {
+            response.textContent = 'Something wrong! Please, try again later'
         }
     })
 
@@ -32,5 +34,7 @@ document.forms.regForm.onsubmit = function (e) {
     //     }
     // }
 
-    xhr.send('name=' + encodeURIComponent(formData.name) + '&email=' + encodeURIComponent(formData.email) + '&password=' + encodeURIComponent(formData.password))
+    xhr.send('name=' + encodeURIComponent(formData.name)
+        // + '&email=' + encodeURIComponent(formData.email)
+        + '&password=' + encodeURIComponent(formData.password))
 }

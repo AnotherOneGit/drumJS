@@ -13,8 +13,10 @@ document.forms.enterForm.onsubmit = function (e) {
     xhr.addEventListener('load', function () {
         if(xhr.responseText === 'wrong'){
             response.textContent = 'User not found! Wrong login AND/OR password'
-        } else {
+        } else if(xhr.responseText === 'ok'){
             window.location = '../index.html'
+        } else {
+            response.textContent = 'Something wrong! Please, try again later'
         }
     })
 
