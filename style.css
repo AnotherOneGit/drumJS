@@ -55,8 +55,9 @@ body {
 }
 
 .areaKick {
-    align-content: center;
+    justify-content: center;
     display: grid;
+    text-align: center;
     /*grid-template-rows: repeat(9, 1fr);*/
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
@@ -71,6 +72,12 @@ body {
 
 .screen {
     height: 60px;
+}
+
+.divScreen {
+    display: grid;
+    justify-content: center;
+    height: 55px;
 }
 
 .clearAll {
@@ -126,7 +133,7 @@ form {
 
 /*footer {*/
 /*    position: sticky;*/
-/*    !* bottom: 0; *!*/
+/*     bottom: 0; */
 /*}*/
 
 #response {
