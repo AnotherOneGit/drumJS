@@ -11,8 +11,11 @@
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
-            document.getElementById("demo").innerHTML = myObj;
+            newObj.myObj = JSON.parse(this.responseText);
+            document.getElementById("demo").innerHTML = newObj.myObj.age
+            console.log(newObj)
+            console.log(myObj)
+            console.log(newObj.myObj)
         }
     };
     xmlhttp.open("POST", "templates.php", true);

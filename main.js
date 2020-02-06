@@ -119,6 +119,10 @@ window.addEventListener('DOMContentLoaded', function () {
         audio.play()
     }
 
+    let templates = ['templates', 'template']
+
+    let page = templates[0];
+    let modal = document.getElementById('modal')
     let loadBtn = document.getElementById('loadBtn')
     let addBothBtn = document.getElementById('addBothBtn')
     let double = document.getElementById('double')
@@ -156,6 +160,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     function loadTemplate() {
+        modal.style.display = 'grid'
         let xmlhttp = new XMLHttpRequest();
 
         xmlhttp.onreadystatechange = function() {
@@ -176,7 +181,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 })
             }
         };
-        xmlhttp.open("POST", "php/templates.php", true)
+        xmlhttp.open("POST", "php/" + page + ".php", true)
         xmlhttp.send()
     }
 

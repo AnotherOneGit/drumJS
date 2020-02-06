@@ -140,3 +140,11 @@ form {
     color: var(--warning-text-color);
     text-align: center;
 }
+
+#modal {
+    display: none;
+    position: fixed;
+    background: var(--content-color);
+    justify-self: center;
+    align-self: center;
+}
