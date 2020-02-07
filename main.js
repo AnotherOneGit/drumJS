@@ -160,7 +160,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     function loadTemplate() {
-        modal.style.display = 'grid'
+        // modal.style.display = 'grid'
         let xmlhttp = new XMLHttpRequest();
 
         xmlhttp.onreadystatechange = function() {
