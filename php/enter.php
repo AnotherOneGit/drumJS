@@ -1,8 +1,10 @@
 <?php
-
+session_start();
 require_once 'connect.php';
 
 $login = trim($_POST['name']);
+$_SESSION['login'] = $login;
+
 $pwd = trim($_POST['password']);
 
 if(!empty($login) && !empty($pwd)){

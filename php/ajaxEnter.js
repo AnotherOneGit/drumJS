@@ -14,7 +14,7 @@ document.forms.enterForm.onsubmit = function (e) {
         if(xhr.responseText === 'wrong'){
             response.textContent = 'User not found! Wrong login AND/OR password'
         } else if(xhr.responseText === 'ok'){
-            window.location = '../index.html'
+            window.location = '../index.php'
         } else {
             response.textContent = 'Something wrong! Please, try again later'
         }
